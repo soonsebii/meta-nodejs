@@ -1,0 +1,26 @@
+From 57d825c53e4c33f16db94ac86a9d0729bcf6ea10 Mon Sep 17 00:00:00 2001
+From: "Soon-Sub, Kwon" <soonsebii@gmail.com>
+Date: Wed, 30 Nov 2016 10:02:25 +0900
+Subject: [PATCH] nodejs: Update global path
+
+---
+ lib/module.js | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lib/module.js b/lib/module.js
+index 141ee18..0fcf2ff 100644
+--- a/lib/module.js
++++ b/lib/module.js
+@@ -453,7 +453,8 @@ Module._initPaths = function() {
+     homeDir = process.env.HOME;
+   }
+ 
+-  var paths = [path.resolve(process.execPath, '..', '..', 'lib', 'node')];
++  var paths = [path.resolve(process.execPath, '..', '..', 'lib', 'node'),
++    path.resolve(process.execPath, '..', '..', 'lib', 'node_modules')];
+ 
+   if (homeDir) {
+     paths.unshift(path.resolve(homeDir, '.node_libraries'));
+-- 
+2.7.4
+
